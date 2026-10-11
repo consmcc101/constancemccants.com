@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About – Constance McCants</title>
+<meta name="description" content="About Constance McCants, illustrator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Thin.otf")      format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-ThinIt.otf")     format("opentype"); font-weight: 100; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-XLight.otf")     format("opentype"); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-XLightIt.otf")   format("opentype"); font-weight: 200; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Light.otf")      format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-LightIt.otf")    format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Regular.otf")    format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Italic.otf")     format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Medium.otf")     format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-MediumIt.otf")   format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Semibold.otf")   format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-SemiboldIt.otf") format("opentype"); font-weight: 600; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Bold.otf")       format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-BoldIt.otf")     format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Black.otf")      format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-BlackIt.otf")    format("opentype"); font-weight: 800; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Super.otf")      format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-SuperIt.otf")    format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
+
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #4d4d4d;
+    --line: rgba(17,17,17,0.14);
+    --edge: clamp(60px, 9vw, 150px);
+    --gap: clamp(28px, 5vw, 72px);
+    --type-base: 16px;
+    --type-body: 1rem;
+    --type-small: 0.82rem;
+    --type-nav: 1rem;
+    --type-h1: clamp(2.2rem, 3vw, 3rem);
+    --type-h2: clamp(1.35rem, 1.8vw, 1.85rem);
+    --type-h3: 1.1rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; font-size: var(--type-base); }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #ffffff 0%, #f7f5f2 100%);
+    background-position: 0 0;
+    background-size: 100% 100%;
+    color: var(--ink);
+    font-family: "Poppins", Futura, "Century Gothic", sans-serif;
+    font-size: var(--type-body);
+    line-height: 1.55;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  img, canvas, svg {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+  }
+  a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  /* ---------- Header (same as index.html) ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    padding: 48px var(--edge) 46px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  .logo { display: block; line-height: 0; transition: transform .28s ease; }
+  .logo:hover { transform: rotate(-3deg); }
+  .logo img { display: block; height: clamp(30px, 3.7vw, 56px); width: auto; }
+  nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 10px clamp(24px, 3.6vw, 50px); margin: 0; padding: 0; list-style: none; }
+  .nav-item { position: relative; }
+  .nav-work::before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    top: 52%;
+    width: 100px;
+    height: 100px;
+    background: url("images/Shapes-02.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-work:hover::before,
+  .nav-work:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-about::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 90px;
+    height: 90px;
+    background: url("images/Shapes-09.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-about:hover::before,
+  .nav-about:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-shop::before {
+    content: "";
+    position: absolute;
+    left: 53%;
+    top: 56%;
+    width: 102px;
+    height: 102px;
+    background: url("images/Shapes-13.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-shop:hover::before,
+  .nav-shop:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  nav a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 0 8px;
+    border-bottom: none;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: var(--type-nav);
+    line-height: 1.2;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+  .nav-work:hover a,
+  .nav-work:focus-within a,
+  .nav-work a:hover,
+  .nav-work a:focus-visible,
+  .nav-about:hover a,
+  .nav-about:focus-within a,
+  .nav-about a:hover,
+  .nav-about a:focus-visible,
+  .nav-shop:hover a,
+  .nav-shop:focus-within a,
+  .nav-shop a:hover,
+  .nav-shop a:focus-visible {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.8);
+  }
+
+  h1, h2, h3, .headline {
+    margin: 0 0 0.75em;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .intro-word {
+    display: inline-block;
+    transition: color 0.2s ease;
+  }
+  .intro-word:hover,
+  .intro-word:focus-visible {
+    color: #ff8fc2;
+  }
+  .intro-word-green {
+    display: inline-block;
+    transition: color 0.2s ease;
+  }
+  .intro-word-green:hover,
+  .intro-word-green:focus-visible {
+    color: #8fe3a1;
+  }
+  .intro-word-blue {
+    display: inline-block;
+    transition: color 0.2s ease;
+  }
+  .intro-word-blue:hover,
+  .intro-word-blue:focus-visible {
+    color: #8ed4ff;
+  }
+  h1 { font-size: var(--type-h1); }
+  h2 { font-size: var(--type-h2); }
+  h3 { font-size: var(--type-h3); }
+
+  /* ---------- About content ---------- */
+  .about {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    padding: 24px var(--edge) clamp(88px, 10vw, 140px);
+    align-items: start;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  .about img { display: block; width: 100%; height: auto; }
+
+  /* ---------- Portrait ---------- */
+  .photo-frame {
+    position: relative;
+    max-width: 320px;
+    margin-left: 6px;
+    border: 0;
+    background: transparent;
+    overflow: visible;
+    filter: none;
+    transform: rotate(-1.6deg);
+  }
+  .photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 26% 22% 24% 28% / 18% 22% 20% 24%;
+    box-shadow: 0 20px 28px rgba(17,17,17,0.08);
+    border: 0;
+    background: #f5f1ea;
+    object-fit: cover;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-frame .shape { transition: opacity .2s ease; }
+    .photo-frame:hover .shape, .photo-frame:focus-within .shape { transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-frame .shape { transition: opacity .2s ease; }
+    .photo-frame:hover .shape, .photo-frame:focus-within .shape { transform: none; }
+  }
+  .about h1 { font-size: var(--type-h1); line-height: 1.12; max-width: 28ch; margin: 0 0 28px; }
+  .about p { max-width: 62ch; line-height: 1.65; margin: 0 0 18px; }
+  .about .contact { margin-top: 32px; }
+  .about .contact dt { font-weight: 600; }
+  .about .contact dd { margin: 0 0 14px; }
+  .about .info-block {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid #e3e3e3;
+  }
+  .about .info-block h2,
+  .about .clients h2 {
+    font-size: 1.18rem;
+    margin: 0 0 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .about .info-block ul {
+    margin: 0; padding-left: 1.3rem; max-width: 62ch;
+  }
+  .about .info-block li {
+    margin-bottom: 12px; line-height: 1.6; color: #ede5d9;
+  }
+  .about .info-block em { font-style: italic; }
+  .about .clients {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .about .clients h2 {
+    font-size: 1.18rem;
+    margin: 0 0 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .about .clients ul {
+    margin: 0; padding: 0; list-style: none;
+    max-width: 56ch;
+  }
+  .about .clients li { margin-bottom: 10px; line-height: 1.5; color: #ede5d9; }
+
+  .site-footer {
+    padding: 20px var(--edge) 36px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    :root {
+      --edge: clamp(22px, 5vw, 42px);
+    }
+    header {
+      padding-top: calc(28px + env(safe-area-inset-top));
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      padding-bottom: 24px;
+      gap: 12px 20px;
+    }
+    .about {
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      gap: 28px;
+    }
+  }
+  @media (max-width: 720px) {
+    :root {
+      --edge: 20px;
+    }
+    header {
+      padding-top: calc(18px + env(safe-area-inset-top));
+      padding-bottom: 18px;
+      gap: 10px 16px;
+    }
+    .logo img { height: clamp(26px, 7vw, 36px); }
+    nav ul {
+      gap: 4px 16px;
+      width: 100%;
+    }
+    nav a {
+      font-size: 0.93rem;
+      letter-spacing: 0.02em;
+    }
+    .about { grid-template-columns: 1fr; padding-top: 12px; }
+    .photo-frame { max-width: 100%; margin-left: 0; }
+    .about h1 { max-width: 100%; }
+    .site-footer {
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      font-size: 0.72rem;
+    }
+    dialog { padding: 18px 18px 56px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html" aria-label="Constance McCants – home">
+    <img src="images/my-logo.png" alt="Constance McCants">
+  </a>
+  <nav aria-label="Main">
+    <ul>
+      <li class="nav-item nav-work"><a href="index.html">work</a></li>
+      <li class="nav-item nav-about"><a href="about.html" aria-current="page">about</a></li>
+      <li class="nav-item nav-shop"><a href="shop.html">shop</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("contextmenu", e => {
+    if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
+      e.preventDefault();
+    }
+  });
+
+  document.addEventListener("dragstart", e => {
+    if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
+      e.preventDefault();
+    }
+  });
+</script>
+
+<main class="about">
+  <!-- Swap for a photo of yourself or your studio -->
+  <div class="photo-frame" tabindex="0">
+    <img src="images/about-portrait.jpg" alt="Portrait of Constance McCants" width="432" height="432">
+  </div>
+
+  <div>
+    <h1>Constance McCants is an award-winning <span class="intro-word" tabindex="0">designer</span>, <span class="intro-word-green" tabindex="0">illustrator</span>, and <span class="intro-word-blue" tabindex="0">artist</span> based in Columbia, South Carolina.</h1>
+
+    <p>
+      Constance started out at Chernoff Newman, an integrated
+      communications agency, before returning to her alma mater as a
+      graphic designer in the University of South Carolina's Division of
+      Marketing.
+    </p>
+    <p>
+      She stays active in Columbia's creative community, serving as
+      Judging Chair for the American Advertising Federation Midlands
+      Chapter and Co-Chair of the Marketing Committee for Columbia
+      Contemporaries. Outside of work, she finds inspiration in her
+      surroundings and spends time with the people she loves at local
+      music and art events.
+    </p>
+    <p>
+      With both agency and in-house experience, no project is too big,
+      too small, or too weird. Constance is curious, detail-driven, and
+      always up for a new challenge, moving easily between branding,
+      print, digital, and illustration. She believes every brand has a
+      story worth telling, and she's drawn to finding the visual language
+      that tells it best.
+    </p>
+
+    <dl class="contact">
+      <dt>Email</dt>
+      <dd><a href="mailto:hello@constancemccants.com">hello@constancemccants.com</a></dd>
+      <dt>Instagram</dt>
+      <dd><a href="https://instagram.com/constancemccants">@constancemccants</a></dd>
+    </dl>
+
+    <section class="info-block">
+      <h2>Awards</h2>
+      <ul>
+        <li>World Illustration Awards, 2025 Longlist, <em>Site Specific + New Talent</em>, “Welcome to SVAD” <a href="https://worldillustrationawards.com/projects/constance-mccants-welcome-to-svad/" target="_blank" rel="noopener">More info</a></li>
+        <li>AAF District III: Gold ADDY Award, <em>OOH &amp; Ambient Media</em>, “Welcome to SVAD” <a href="https://aafdistrict3.org/news/2025-award-winners/" target="_blank" rel="noopener">More info</a></li>
+        <li>AAF Midlands: Gold ADDY Award, <em>Outdoor &amp; Transit Advertising, Site</em>, “Welcome to SVAD” <a href="https://aafmidlands.com/2025-american-advertising-awards-winners/" target="_blank" rel="noopener">More info</a></li>
+        <li>2023 Fl3tch3r Exhibit Student Awards + Student Work Exhibition, <em>“SOAR Airlines”</em>, <a href="https://lnkd.in/e3SHN3Vp" target="_blank" rel="noopener">More info</a></li>
+        <li>Silver ADDY Award, <em>Integrated Brand Identity, Campaign</em>, “SOAR Airlines” <a href="https://aafmidlands.com/2024-american-advertising-awards-winners/" target="_blank" rel="noopener">More info</a></li>
+      </ul>
+    </section>
+
+    <section class="info-block">
+      <h2>Exhibits / Workshops</h2>
+      <ul>
+        <li>Wonder, Gemini Arts, “Nostalgia 2.0,” Group Exhibit</li>
+        <li>“Inquiry by Design” and “Poster Making” Workshop, Basel School of Design, University of Applied Sciences and Arts Northwestern Switzerland (FHNW)</li>
+        <li>USC School of Visual Art and Design, “McMaster 70th Annual Student Juried Show,” Juried Show</li>
+        <li>Wonder, Boyd Innovation Center, “Nostalgia,” Group Exhibit</li>
+        <li>Wonder, Boyd Innovation Center, “Eerie,” Group Exhibit</li>
+        <li>Good for the Sole, “Pen Pals,” Group Exhibit</li>
+        <li>Good for the Sole, “Creations Abroad,” Solo Exhibit</li>
+        <li>FemmeX, “USC Italy Honors College Study Abroad,” Group Exhibit</li>
+      </ul>
+    </section>
+
+    <section class="info-block">
+      <h2>Featured</h2>
+      <ul>
+        <li><a href="https://www.sc.edu/study/colleges_schools/artsandsciences/visual_art_and_design/about/news/2024/gdi_students_aafmidlands_awards.php" target="_blank" rel="noopener">Graphic Design + Illustration students shine bright at 2024 AAF Midlands Awards Gala</a></li>
+        <li><a href="https://www.sc.edu/study/colleges_schools/artsandsciences/about/news/2024/svad_student_design_studio.php" target="_blank" rel="noopener">USC’s student-run design studio nurtures creativity and industry experience</a></li>
+        <li><a href="https://sc.edu/study/colleges_schools/artsandsciences/visual_art_and_design/study/undergraduate/studio_art/graphics/course_experience/design_studio/index.php" target="_blank" rel="noopener">The Design Studio</a></li>
+        <li><a href="https://sc.edu/study/colleges_schools/artsandsciences/visual_art_and_design/study/undergraduate/studio_art/graphics/awards/index.php" target="_blank" rel="noopener">GD+I Program, Student Experiences, GD+I Club</a></li>
+        <li><a href="https://worldillustrationawards.com/projects/constance-mccants-welcome-to-svad/" target="_blank" rel="noopener">World Illustration Awards Winners and Archive</a></li>
+        <li><a href="https://worldillustrationawards.com/news/wia2025-site-specific-longlist-category-highlights" target="_blank" rel="noopener">WIA2025 – Longlist Category Highlights: Site Specific</a></li>
+        <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7368666778647859201/" target="_blank" rel="noopener">USC McCausland School of Arts and Sciences LinkedIn Feature</a></li>
+        <li><a href="https://aafmidlands.com/join-2/" target="_blank" rel="noopener">Meet the AAF Midlands Board of Directors</a></li>
+      </ul>
+    </section>
+
+    <section class="clients">
+      <h2>Selected clients</h2>
+      <ul>
+        <li>Charlotte Douglas International Airport</li>
+        <li>South Carolina Department of Behavioral Health and Developmental Disabilities</li>
+        <li>South Carolina Department of Agriculture</li>
+        <li>University of South Carolina</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div>Copyright © 2026 Constance McCants</div>
+</footer>
+
+</body>
+</html>

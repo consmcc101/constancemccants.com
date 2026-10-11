@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop – Constance McCants</title>
+<meta name="description" content="Shop listings by Constance McCants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Thin.otf") format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Semibold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+  :root {
+    --bg: #fff;
+    --ink: #111;
+    --muted: #6d6d6d;
+    --line: #e9e9e9;
+    --edge: clamp(60px, 9vw, 150px);
+    --card-gap: clamp(18px, 2vw, 28px);
+    --type-base: 16px;
+    --type-body: 1rem;
+    --type-small: 0.78rem;
+    --type-nav: 1rem;
+    --type-h1: clamp(2.2rem, 3vw, 3rem);
+    --type-h2: clamp(1.15rem, 1.7vw, 1.5rem);
+    --type-h3: 1.1rem;
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: var(--type-base); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: var(--type-body);
+    line-height: 1.55;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  img, svg { -webkit-user-drag: none; user-drag: none; }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    padding: 48px var(--edge) 46px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  .logo { display: block; line-height: 0; transition: transform .28s ease; }
+  .logo:hover { transform: rotate(-3deg); }
+  .logo img { display: block; height: clamp(30px, 3.7vw, 56px); width: auto; }
+  nav ul {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px clamp(24px, 3.6vw, 50px);
+    margin: 0; padding: 0; list-style: none;
+  }
+  .nav-item { position: relative; }
+  .nav-work::before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    top: 52%;
+    width: 100px;
+    height: 100px;
+    background: url("images/Shapes-02.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-work:hover::before,
+  .nav-work:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-about::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 90px;
+    height: 90px;
+    background: url("images/Shapes-09.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-about:hover::before,
+  .nav-about:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-shop::before {
+    content: "";
+    position: absolute;
+    left: 53%;
+    top: 56%;
+    width: 102px;
+    height: 102px;
+    background: url("images/Shapes-13.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-shop:hover::before,
+  .nav-shop:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  nav a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 0 8px;
+    border-bottom: none;
+    text-decoration: none;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: var(--type-nav);
+    line-height: 1.2;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+  .nav-work:hover a,
+  .nav-work:focus-within a,
+  .nav-work a:hover,
+  .nav-work a:focus-visible,
+  .nav-about:hover a,
+  .nav-about:focus-within a,
+  .nav-about a:hover,
+  .nav-about a:focus-visible,
+  .nav-shop:hover a,
+  .nav-shop:focus-within a,
+  .nav-shop a:hover,
+  .nav-shop a:focus-visible {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.8);
+  }
+
+  .shop-shell {
+    padding: 24px var(--edge) 90px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+
+  .shop-toolbar {
+    display: grid;
+    grid-template-columns: minmax(150px, 190px) auto;
+    align-items: end;
+    gap: 14px;
+    margin: 2px 0 20px;
+  }
+  .sort-box {
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    background: #ececec;
+    border: 1px solid #e0e0e0;
+    padding: 0 10px;
+    font-size: 0.82rem;
+    color: var(--ink);
+    max-width: 190px;
+  }
+  .sort-box select {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    color: var(--ink);
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+  }
+  .sort-box select:focus-visible {
+    outline: none;
+  }
+  .toolbar-meta {
+    justify-self: end;
+    align-self: end;
+    display: flex;
+    align-items: flex-end;
+    min-height: 32px;
+    padding-bottom: 2px;
+    font-size: 0.82rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .pager {
+    display: none;
+  }
+
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 2.5vw, 34px);
+    align-items: start;
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    transition: transform .2s ease, opacity .2s ease;
+    text-decoration: none;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    opacity: 0.96;
+  }
+  .product-image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid rgba(17,17,17,0.06);
+  }
+  .product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 3px;
+    padding: 12px 0 0;
+    min-height: 72px;
+  }
+  .product-title {
+    margin: 0;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .product-price {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--ink);
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 920px) {
+    .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 620px) {
+    .shop-grid { grid-template-columns: 1fr; }
+    .shop-shell { padding-bottom: 60px; }
+  }
+  .site-footer {
+    padding: 20px var(--edge) 36px;
+    color: #7c7c7c;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html" aria-label="Constance McCants – home">
+    <img src="images/my-logo.png" alt="Constance McCants">
+  </a>
+  <nav aria-label="Main">
+    <ul>
+      <li class="nav-item nav-work"><a href="index.html">work</a></li>
+      <li class="nav-item nav-about"><a href="about.html">about</a></li>
+      <li class="nav-item nav-shop"><a href="shop.html" aria-current="page">shop</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="shop-shell">
+  <div class="shop-toolbar" aria-label="Shop controls">
+    <div class="sort-box">
+      <label>
+        <select aria-label="Sort products">
+          <option>Default sorting</option>
+          <option>Sort by price: low to high</option>
+          <option>Sort by price: high to low</option>
+          <option>Sort by newest</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="toolbar-meta" id="toolbar-meta">Showing 1–6 of 6 results</div>
+  </div>
+
+  <div class="shop-grid" id="shop-grid" aria-live="polite"></div>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div>Copyright © 2026 Constance McCants</div>
+</footer>
+
+<script>
+  const products = [
+    {
+      title: "Orange Lion Sticker",
+      price: "$3",
+      tag: "sticker",
+      color: "#f2d55c",
+      image: "images/orange-lion-sticker.png",
+      link: "https://buymeacoffee.com/constancemcc/e/585685"
+    },
+    {
+      title: "Poster No. 01",
+      price: "$120",
+      tag: "print",
+      color: "#f4b393",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    },
+    {
+      title: "Studio Notes",
+      price: "$145",
+      tag: "limited run",
+      color: "#a9d6e5",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    },
+    {
+      title: "Color Study",
+      price: "$160",
+      tag: "original",
+      color: "#f7e08c",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    },
+    {
+      title: "Everyday Objects",
+      price: "$110",
+      tag: "print",
+      color: "#b7d9a8",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    },
+    {
+      title: "Field Notes",
+      price: "$180",
+      tag: "giclée",
+      color: "#e6b8d4",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    },
+    {
+      title: "Leaf Study",
+      price: "$95",
+      tag: "mini print",
+      color: "#c9c3e6",
+      link: "https://buymeacoffee.com/constancemcc/extras"
+    }
+  ];
+
+  function makeSvg(color, label) {
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="${label}">
+        <rect width="800" height="1000" fill="#f5f5f5"/>
+        <rect x="0" y="0" width="800" height="1000" fill="${color}" opacity="0.6"/>
+        <circle cx="220" cy="280" r="170" fill="#ffffff" opacity="0.25"/>
+        <circle cx="600" cy="700" r="210" fill="#ffffff" opacity="0.12"/>
+        <path d="M140 788C240 646 320 530 430 414C490 356 587 338 670 278L705 782L140 788Z" fill="#ffffff" opacity="0.22"/>
+        <path d="M160 230L310 120L375 255L510 188L560 360L704 340L670 492L540 560L618 704L462 630L420 820L260 690L122 750L176 520L80 418L160 230Z" fill="#ffffff" opacity="0.18"/>
+      </svg>
+    `;
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
+  const grid = document.getElementById("shop-grid");
+  const toolbarMeta = document.getElementById("toolbar-meta");
+  const totalProducts = products.length;
+  const showingText = totalProducts === 1
+    ? 'Showing 1 of 1 result'
+    : `Showing 1–${totalProducts} of ${totalProducts} results`;
+  toolbarMeta.textContent = showingText;
+
+  products.forEach((product) => {
+    const card = document.createElement("a");
+    card.className = "product-card";
+    card.href = product.link;
+    card.target = "_blank";
+    card.rel = "noopener noreferrer";
+    card.setAttribute("aria-label", product.title + " – buy now");
+
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "product-image";
+    const img = document.createElement("img");
+    img.src = product.image || makeSvg(product.color, product.title);
+    img.alt = product.title;
+    img.loading = "lazy";
+    img.decoding = "async";
+    imageWrap.appendChild(img);
+
+    const meta = document.createElement("div");
+    meta.className = "product-meta";
+    const title = document.createElement("h2");
+    title.className = "product-title";
+    title.textContent = product.title;
+    const price = document.createElement("p");
+    price.className = "product-price";
+    price.textContent = product.price;
+    meta.appendChild(title);
+    meta.appendChild(price);
+
+    card.appendChild(imageWrap);
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="green bloom shape">
+  <g fill="#4aa866">
+    <ellipse cx="500" cy="180" rx="118" ry="300" transform="rotate(0 500 500)"/>
+    <ellipse cx="500" cy="180" rx="118" ry="300" transform="rotate(90 500 500)"/>
+    <ellipse cx="500" cy="180" rx="118" ry="300" transform="rotate(180 500 500)"/>
+    <ellipse cx="500" cy="180" rx="118" ry="300" transform="rotate(270 500 500)"/>
+  </g>
+</svg>

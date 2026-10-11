@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="purple bloom shape">
+  <g fill="#6b3ca0">
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(0 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(45 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(90 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(135 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(180 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(225 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(270 500 500)"/>
+    <ellipse cx="500" cy="220" rx="130" ry="285" transform="rotate(315 500 500)"/>
+  </g>
+</svg>

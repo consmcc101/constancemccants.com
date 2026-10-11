@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constance McCants – Illustration</title>
+<meta name="description" content="Illustration and design portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Polymath (self-hosted) — used for the nav and any headline/display text.
+     Body copy stays on Poppins, since Polymath is a display face and the
+     demo files only cover a limited character set. */
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Thin.otf")      format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-ThinIt.otf")     format("opentype"); font-weight: 100; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-XLight.otf")     format("opentype"); font-weight: 200; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-XLightIt.otf")   format("opentype"); font-weight: 200; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Light.otf")      format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-LightIt.otf")    format("opentype"); font-weight: 300; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Regular.otf")    format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Italic.otf")     format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Medium.otf")     format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-MediumIt.otf")   format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Semibold.otf")   format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-SemiboldIt.otf") format("opentype"); font-weight: 600; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Bold.otf")       format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-BoldIt.otf")     format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Black.otf")      format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-BlackIt.otf")    format("opentype"); font-weight: 800; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Super.otf")      format("opentype"); font-weight: 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-SuperIt.otf")    format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
+
+  :root {
+    --bg: #ffffff;
+    --ink: #111111;
+    --muted: #4d4d4d;
+    --line: rgba(17,17,17,0.14);
+    --edge: clamp(60px, 9vw, 150px);   /* page margin */
+    --gap: clamp(18px, 2.5vw, 52px);   /* space between images */
+    --type-base: 16px;
+    --type-body: 1rem;
+    --type-small: 0.82rem;
+    --type-nav: 1rem;
+    --type-h1: clamp(2.2rem, 3vw, 3rem);
+    --type-h2: clamp(1.35rem, 1.8vw, 1.85rem);
+    --type-h3: 1.1rem;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; font-size: var(--type-base); }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: linear-gradient(180deg, #ffffff 0%, #f7f5f2 100%);
+    background-position: 0 0;
+    background-size: 100% 100%;
+    color: var(--ink);
+    font-family: "Poppins", Futura, "Century Gothic", sans-serif;
+    font-size: var(--type-body);
+    line-height: 1.55;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  img, canvas, svg {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+  }
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    padding: 48px var(--edge) 46px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  .logo { display: block; line-height: 0; transition: transform .28s ease; }
+  .logo:hover { transform: rotate(-3deg); }
+  .logo img { display: block; height: clamp(30px, 3.7vw, 56px); width: auto; }
+  nav ul { display: flex; flex-wrap: wrap; align-items: center; gap: 10px clamp(24px, 3.6vw, 50px); margin: 0; padding: 0; list-style: none; }
+  .nav-item { position: relative; }
+  .nav-work::before {
+    content: "";
+    position: absolute;
+    left: 48%;
+    top: 52%;
+    width: 100px;
+    height: 100px;
+    background: url("images/Shapes-02.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-work:hover::before,
+  .nav-work:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-about::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 90px;
+    height: 90px;
+    background: url("images/Shapes-09.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-about:hover::before,
+  .nav-about:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  .nav-shop::before {
+    content: "";
+    position: absolute;
+    left: 53%;
+    top: 56%;
+    width: 102px;
+    height: 102px;
+    background: url("images/Shapes-13.png") center/contain no-repeat;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+  }
+  .nav-shop:hover::before,
+  .nav-shop:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+  nav a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 0 8px;
+    border-bottom: none;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1.02rem;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  h1, h2, h3, .headline {
+    margin: 0 0 0.75em;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  h1 { font-size: var(--type-h1); }
+  h2 { font-size: var(--type-h2); }
+  h3 { font-size: var(--type-h3); }
+  nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+  .nav-work:hover a,
+  .nav-work:focus-within a,
+  .nav-work a:hover,
+  .nav-work a:focus-visible,
+  .nav-about:hover a,
+  .nav-about:focus-within a,
+  .nav-about a:hover,
+  .nav-about a:focus-visible,
+  .nav-shop:hover a,
+  .nav-shop:focus-within a,
+  .nav-shop a:hover,
+  .nav-shop a:focus-visible {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.8);
+  }
+  nav a {
+    font-size: var(--type-nav);
+    line-height: 1.2;
+  }
+
+  /* ---------- Masonry grid ---------- */
+  .grid {
+    columns: 3;
+    column-gap: var(--gap);
+    padding: 32px var(--edge) var(--edge);
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  .piece { break-inside: avoid; margin: 0 0 var(--gap); }
+  .piece button {
+    display: block; width: 100%;
+    padding: 0; border: 0; background: none; cursor: zoom-in;
+    transition: transform .28s ease, opacity .28s ease;
+  }
+  .piece img {
+    display: block; width: 100%; height: auto;
+    transition: transform .28s ease, opacity .28s ease, filter .28s ease;
+  }
+  .piece button:hover img {
+    transform: scale(1.01) rotate(-0.25deg);
+    opacity: 0.96;
+    box-shadow: 0 10px 18px rgba(17,17,17,0.08);
+  }
+  @media (max-width: 900px) {
+    :root {
+      --edge: clamp(22px, 5vw, 42px);
+      --gap: clamp(14px, 2vw, 26px);
+    }
+    header {
+      padding-top: calc(28px + env(safe-area-inset-top));
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      padding-bottom: 24px;
+      gap: 12px 20px;
+    }
+    .grid { columns: 2; }
+    .site-footer { padding-left: var(--edge); padding-right: var(--edge); }
+  }
+  @media (max-width: 560px) {
+    :root {
+      --edge: 20px;
+      --gap: 14px;
+    }
+    header {
+      padding-top: calc(18px + env(safe-area-inset-top));
+      padding-bottom: 18px;
+      gap: 10px 16px;
+    }
+    .logo img { height: clamp(26px, 7vw, 36px); }
+    nav ul {
+      gap: 4px 16px;
+      width: 100%;
+    }
+    nav a {
+      font-size: 0.93rem;
+      letter-spacing: 0.02em;
+    }
+    .grid {
+      columns: 1;
+      padding-top: 18px;
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      padding-bottom: 36px;
+    }
+    .site-footer {
+      padding-left: var(--edge);
+      padding-right: var(--edge);
+      font-size: 0.72rem;
+    }
+    .lb-btn { font-size: 0.95rem; }
+    dialog { padding: 18px 18px 56px; }
+  }
+
+  /* ---------- Lightbox ---------- */
+  dialog {
+    width: 100vw; height: 100vh; max-width: none; max-height: none;
+    margin: 0; padding: var(--edge); border: 0;
+    background: rgba(15,15,15,.96);
+    color: var(--ink);
+    opacity: 0;
+    transform: scale(.985);
+    transition: opacity .28s ease, transform .28s ease;
+    pointer-events: none;
+  }
+  dialog[open] {
+    display: flex; align-items: center; justify-content: center;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  dialog::backdrop {
+    background: rgba(0,0,0,0.72);
+    transition: background-color .3s ease;
+  }
+  dialog img {
+    max-width: 100%; max-height: 100%; object-fit: contain;
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .lb-btn {
+    position: fixed; background: none; border: 0; cursor: pointer;
+    font: inherit; font-size: 1.05rem; color: var(--ink); padding: 12px;
+  }
+  .lb-close { top: 12px; right: 16px; }
+  .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
+  .site-footer {
+    padding: 20px var(--edge) 36px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html" aria-label="Constance McCants – home">
+    <img src="images/my-logo.png" alt="Constance McCants">
+  </a>
+  <nav aria-label="Main">
+    <ul>
+      <li class="nav-item nav-work"><a href="index.html" aria-current="page">work</a></li>
+      <li class="nav-item nav-about"><a href="about.html">about</a></li>
+      <li class="nav-item nav-shop"><a href="shop.html">shop</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="grid" id="grid" aria-label="Selected work"></div>
+</main>
+
+<footer class="site-footer" aria-label="Footer">
+  <div>Copyright © 2026 Constance McCants</div>
+</footer>
+
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-btn lb-close" aria-label="Close">close</button>
+  <button class="lb-btn lb-prev" aria-label="Previous">prev</button>
+  <img alt="">
+  <button class="lb-btn lb-next" aria-label="Next">next</button>
+</dialog>
+
+<script>
+  /* ---------------------------------------------------------------
+     YOUR WORK GOES HERE
+     Replace each entry with your real file, e.g.
+       { src: "images/mobile-tour.jpg", alt: "Poster showing...", w: 1200, h: 1800 }
+     w and h are the image's pixel size; they reserve space so the page
+     doesn't jump while images load. Order flows down each column, so
+     put your strongest pieces first.
+     The entries below are grey placeholders so you can see the layout.
+     --------------------------------------------------------------- */
+  const pieces = [
+    { src: "images/work/WIA%20Announcment%20Post.png", alt: "WIA announcement post", w: 13012, h: 16265 },
+    { src: "images/work/CMcCants-BeepBeep-ArtFields-2026.jpg", alt: "Beep Beep ArtFields 2026", w: 2400, h: 2400 },
+    { src: "images/work/Artboard%201.png", alt: "Artboard 1", w: 2000, h: 2000 },
+    { src: "images/work/Riggs.png", alt: "Riggs", w: 2176, h: 2719 },
+    { src: "images/work/bird10.jpg", alt: "Bird 10", w: 2817, h: 3521 },
+    { src: "images/work/MICHAELA-GAMECOCK-CM.png", alt: "Michaela Gamecock", w: 2400, h: 3000 },
+    { src: "images/work/CMcCants-Holiday_Card-2025.jpg", alt: "Holiday card 2025", w: 1001, h: 1249 },
+    { src: "images/work/Untitled_Artwork.jpg", alt: "Untitled artwork", w: 2400, h: 3000 },
+    { src: "images/work/valentine.png", alt: "Valentine", w: 1080, h: 1350 }
+  ];
+
+  const tones = ["#f4b393", "#a9d6e5", "#f7e08c", "#b7d9a8", "#e6b8d4", "#c9c3e6"];
+  const placeholder = (p, i) =>
+    "data:image/svg+xml;utf8," + encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="${p.w}" height="${p.h}">` +
+      `<rect width="100%" height="100%" fill="${tones[i % tones.length]}"/></svg>`);
+
+  document.addEventListener("contextmenu", e => {
+    if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
+      e.preventDefault();
+    }
+  });
+
+  document.addEventListener("dragstart", e => {
+    if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
+      e.preventDefault();
+    }
+  });
+
+  const grid = document.getElementById("grid");
+  pieces.forEach((p, i) => {
+    const fig = document.createElement("figure");
+    fig.className = "piece";
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("aria-label", "View larger: " + (p.alt || "artwork " + (i + 1)));
+    const img = document.createElement("img");
+    img.src = p.src || placeholder(p, i);
+    img.alt = p.alt || "Artwork " + (i + 1);
+    img.width = p.w; img.height = p.h;
+    img.loading = i < 3 ? "eager" : "lazy";
+    img.decoding = "async";
+    btn.appendChild(img);
+    btn.addEventListener("click", () => open(i));
+    fig.appendChild(btn);
+    grid.appendChild(fig);
+  });
+
+  /* Lightbox */
+  const box = document.getElementById("lightbox");
+  const big = box.querySelector("img");
+  let current = 0;
+  function show(i) {
+    current = (i + pieces.length) % pieces.length;
+    const p = pieces[current];
+    big.src = p.src || placeholder(p, current);
+    big.alt = p.alt || "Artwork " + (current + 1);
+  }
+  function open(i) { show(i); box.showModal(); }
+  box.querySelector(".lb-close").onclick = () => box.close();
+  box.querySelector(".lb-prev").onclick = () => show(current - 1);
+  box.querySelector(".lb-next").onclick = () => show(current + 1);
+  box.addEventListener("click", e => { if (e.target === box) box.close(); });
+  box.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
+</script>
+</body>
+</html>
