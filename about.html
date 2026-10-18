@@ -410,6 +410,30 @@
     letter-spacing: 0.02em;
     text-align: center;
   }
+  #anti-drag-popup {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    background: rgba(17,17,17,0.92);
+    color: #fff;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 12px 26px rgba(17,17,17,0.18);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  #anti-drag-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (max-width: 900px) {
     :root {
@@ -474,15 +498,31 @@
 </header>
 
 <script>
+  const antiDragPopup = document.createElement("div");
+  antiDragPopup.id = "anti-drag-popup";
+  antiDragPopup.textContent = "No image theft allowed";
+  document.body.appendChild(antiDragPopup);
+
+  let antiDragTimer = null;
+  function showAntiDragPopup() {
+    antiDragPopup.classList.add("show");
+    clearTimeout(antiDragTimer);
+    antiDragTimer = setTimeout(() => {
+      antiDragPopup.classList.remove("show");
+    }, 1800);
+  }
+
   document.addEventListener("contextmenu", e => {
     if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
       e.preventDefault();
+      showAntiDragPopup();
     }
   });
 
   document.addEventListener("dragstart", e => {
     if (e.target && (e.target.tagName === "IMG" || e.target.tagName === "SVG" || e.target.tagName === "CANVAS")) {
       e.preventDefault();
+      showAntiDragPopup();
     }
   });
 </script>
