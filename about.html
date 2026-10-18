@@ -66,7 +66,14 @@
   a {
     color: var(--ink);
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+  a:hover,
+  a:focus-visible {
+    color: #d92f83;
+    text-decoration-color: #d92f83;
   }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
@@ -252,9 +259,111 @@
   }
   .about h1 { font-size: var(--type-h1); line-height: 1.12; max-width: 28ch; margin: 0 0 28px; }
   .about p { max-width: 62ch; line-height: 1.65; margin: 0 0 18px; }
-  .about .contact { margin-top: 32px; }
-  .about .contact dt { font-weight: 600; }
-  .about .contact dd { margin: 0 0 14px; }
+  .about .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    margin-top: 32px;
+    padding: 0;
+  }
+  .about .contact > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+  }
+  .about .contact dt {
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .about .contact dd {
+    margin: 0;
+  }
+  .about .contact a {
+    text-decoration: none;
+  }
+  .contact-email {
+    font-size: 0.96rem;
+    line-height: 1.3;
+  }
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 1px solid rgba(17,17,17,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    color: var(--ink);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .social-links a:hover,
+  .social-links a:focus-visible {
+    transform: translateY(-1px);
+    border-color: rgba(17,17,17,0.28);
+    background: rgba(255,255,255,0.65);
+    color: var(--ink);
+  }
+  .social-links svg:not(.linkedin-icon) {
+    width: 17px;
+    height: 17px;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .social-links .linkedin-icon {
+    display: block;
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    stroke: none;
+    overflow: visible;
+    shape-rendering: geometricPrecision;
+  }
+  .social-links svg .filled-dot {
+    fill: currentColor;
+    stroke: none;
+  }
+  .resume-link,
+  .inquire-link {
+    width: auto;
+    min-width: 82px;
+    padding: 0 14px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   .about .info-block {
     margin-top: 36px;
     padding-top: 28px;
@@ -411,10 +520,43 @@
     </p>
 
     <dl class="contact">
-      <dt>Email</dt>
-      <dd><a href="mailto:hello@constancemccants.com">hello@constancemccants.com</a></dd>
-      <dt>Instagram</dt>
-      <dd><a href="https://instagram.com/constancemccants">@constancemccants</a></dd>
+      <div>
+        <dt class="sr-only">Email</dt>
+        <dd>
+          <ul class="social-links" aria-label="Email and social links">
+            <li>
+              <a href="mailto:hello@constancemccants.com" aria-label="Email Constance McCants">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="M3 7l9 6 9-6"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/constancemccants" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle class="filled-dot" cx="17.5" cy="6.5" r="1.2"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/constancemccants" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.94 8.5A1.56 1.56 0 1 1 6.94 5.38a1.56 1.56 0 0 1 0 3.12ZM5.5 9.7h2.9v9.8H5.5zm5.3 0h2.78v1.35h.04c.39-.74 1.34-1.52 2.75-1.52 2.94 0 3.48 1.93 3.48 4.44v6.53h-2.9v-6.1c0-1.45-.03-3.32-2.02-3.32-2.03 0-2.34 1.58-2.34 3.2v6.22h-2.9z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="resume-link" href="resume.html" aria-label="Resume">resume</a>
+            </li>
+            <li>
+              <a class="inquire-link" href="inquire.html" aria-label="Inquire about a project">inquire</a>
+            </li>
+          </ul>
+        </dd>
+      </div>
     </dl>
 
     <section class="info-block">

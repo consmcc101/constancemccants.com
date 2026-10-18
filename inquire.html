@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inquire – Constance McCants</title>
+<meta name="description" content="Client inquiry form for Constance McCants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Thin.otf") format("opentype"); font-weight: 100; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Semibold.otf") format("opentype"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Polymath"; src: url("fonts/PolymathDemo-Black.otf") format("opentype"); font-weight: 800; font-style: normal; font-display: swap; }
+
+  :root {
+    --bg: #faf7f1;
+    --paper: #ffffff;
+    --ink: #111111;
+    --muted: #5a5a5a;
+    --line: rgba(17,17,17,0.14);
+    --pink: #d92f83;
+    --green: #49a84b;
+    --blue: #60b4d6;
+    --edge: clamp(24px, 5vw, 78px);
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: 16px; }
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f5f2 100%);
+    color: var(--ink);
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--ink); text-decoration: none; }
+  button, input, select, textarea {
+    font: inherit;
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 48px var(--edge) 30px;
+  }
+
+  .logo {
+    display: block;
+    line-height: 0;
+    transition: transform .28s ease;
+  }
+  .logo:hover { transform: rotate(-3deg); }
+  .logo img { display: block; height: clamp(30px, 3.7vw, 56px); width: auto; }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px clamp(24px, 3.6vw, 50px);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item { position: relative; }
+  .nav-work::before,
+  .nav-about::before,
+  .nav-shop::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%) scale(0.65) rotate(-12deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .nav-work::before { background-image: url("images/Shapes-02.png"); }
+  .nav-about::before { background-image: url("images/Shapes-09.png"); }
+  .nav-shop::before { background-image: url("images/Shapes-13.png"); }
+
+  .nav-work:hover::before, .nav-work:focus-within::before,
+  .nav-about:hover::before, .nav-about:focus-within::before,
+  .nav-shop:hover::before, .nav-shop:focus-within::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-12deg);
+  }
+
+  nav a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 0 8px;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 10px var(--edge) 90px;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(28px, 5vw, 52px);
+    align-items: start;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    margin: 0 0 14px;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0 0 16px;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: clamp(2.5rem, 4vw, 5rem);
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 56ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  .callout {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: clamp(20px, 3vw, 30px);
+    box-shadow: 0 8px 22px rgba(17,17,17,0.04);
+  }
+
+  .callout h2 {
+    margin: 0 0 8px;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: clamp(1.6rem, 2.1vw, 2.6rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .callout p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .form-wrap {
+    background: rgba(255,255,255,0.8);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: clamp(18px, 3vw, 32px);
+    box-shadow: 0 10px 28px rgba(17,17,17,0.04);
+  }
+
+  form {
+    display: grid;
+    gap: 18px;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .field {
+    display: grid;
+    gap: 8px;
+  }
+
+  label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    border: 1px solid rgba(17,17,17,0.15);
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.7);
+    color: var(--ink);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+
+  textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(17,17,17,0.25);
+    box-shadow: 0 0 0 3px rgba(217,47,131,0.1);
+  }
+
+  .submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 8px;
+  }
+
+  .fine-print {
+    font-size: 0.74rem;
+    color: var(--muted);
+    max-width: 40ch;
+  }
+
+  .button {
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.92rem 1.5rem;
+    font-family: "Polymath", "Poppins", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    transform: translateY(-1px);
+    opacity: 0.96;
+  }
+
+  @media (max-width: 720px) {
+    header {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    nav ul {
+      gap: 6px 16px;
+      width: 100%;
+    }
+    nav a {
+      font-size: 0.93rem;
+    }
+    .hero { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .submit-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html" aria-label="Constance McCants – home">
+    <img src="images/my-logo.png" alt="Constance McCants">
+  </a>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li class="nav-item nav-work"><a href="index.html">work</a></li>
+      <li class="nav-item nav-about"><a href="about.html">about</a></li>
+      <li class="nav-item nav-shop"><a href="shop.html">shop</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="page">
+  <section class="hero" aria-labelledby="inquire-title">
+    <div>
+      <p class="eyebrow">Client inquiry</p>
+      <h1 id="inquire-title">Let's make something memorable.</h1>
+      <p class="intro">For commissions, collaborations, branding, editorial work, or custom illustration, send a quick note and the basics of your project. I’ll get back to you with availability and next steps.</p>
+    </div>
+
+    <aside class="callout" aria-label="Inquiries overview">
+      <h2>Project work</h2>
+      <p>Branding, illustration, editorial, art direction, and commissioned pieces for thoughtful, creative clients.</p>
+    </aside>
+  </section>
+
+  <section class="form-wrap" aria-label="Client inquiry form">
+    <form id="inquiry-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="project-type">Project type</label>
+          <select id="project-type" name="project-type">
+            <option value="">Select one</option>
+            <option>Branding</option>
+            <option>Illustration</option>
+            <option>Editorial / print</option>
+            <option>Packaging</option>
+            <option>Art direction</option>
+            <option>Custom commission</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="timeline">Timeline</label>
+          <input id="timeline" name="timeline" type="text" placeholder="e.g. Q2 2026, ASAP, etc.">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="budget">Budget range</label>
+          <select id="budget" name="budget">
+            <option value="">Select range</option>
+            <option>$500–$1,500</option>
+            <option>$1,500–$3,500</option>
+            <option>$3,500–$7,500</option>
+            <option>$7,500–$15,000</option>
+            <option>$15,000+</option>
+            <option>Open to discussion</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="company">Company / organization</label>
+          <input id="company" name="company" type="text" placeholder="Optional">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="project-details">Project details</label>
+        <textarea id="project-details" name="project-details" placeholder="Tell me a bit about the project, goals, audience, and any reference inspiration." required></textarea>
+      </div>
+
+      <div class="submit-row">
+        <p class="fine-print">Responses are reviewed by email and I’ll follow up within a few business days.</p>
+        <button class="button" type="submit">Send inquiry</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<script>
+  document.getElementById('inquiry-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = (formData.get('name') || '').toString().trim();
+    const email = (formData.get('email') || '').toString().trim();
+    const projectType = (formData.get('project-type') || '').toString().trim();
+    const timeline = (formData.get('timeline') || '').toString().trim();
+    const budget = (formData.get('budget') || '').toString().trim();
+    const company = (formData.get('company') || '').toString().trim();
+    const details = (formData.get('project-details') || '').toString().trim();
+
+    const subject = encodeURIComponent('New project inquiry from ' + (name || 'a potential client'));
+    const body = encodeURIComponent(
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Project type: ' + projectType + '\n' +
+      'Timeline: ' + timeline + '\n' +
+      'Budget: ' + budget + '\n' +
+      'Company / organization: ' + company + '\n\n' +
+      'Project details:\n' + details
+    );
+
+    window.location.href = 'mailto:hello@constancemccants.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
