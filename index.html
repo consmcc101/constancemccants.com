@@ -213,14 +213,14 @@
   .piece {
     break-inside: avoid;
     margin: 0 0 var(--gap);
-    opacity: 1;
-    transform: none;
-    will-change: auto;
-    transition: none;
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    will-change: transform, opacity;
+    transition: opacity .52s ease, transform .9s cubic-bezier(.19, 1, .22, 1);
   }
   .piece.visible {
     opacity: 1;
-    transform: none;
+    transform: translate3d(0, 0, 0);
   }
   .piece button {
     display: block; width: 100%;
@@ -481,6 +481,14 @@
     if (e.key === "ArrowLeft") show(current - 1);
     if (e.key === "ArrowRight") show(current + 1);
   });
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".piece").forEach((piece, index) => {
+      piece.style.transitionDelay = `${index * 0.04}s`;
+      piece.classList.add("visible");
+    });
+  });
+
   window.addEventListener("load", () => document.body.classList.add("ready"));
 </script>
 </body>
