@@ -204,15 +204,15 @@
 
   /* ---------- Masonry grid ---------- */
   .grid {
-    columns: 3;
-    column-gap: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap);
     padding: 18px var(--edge) var(--edge);
     max-width: 1800px;
     margin: 0 auto;
   }
   .piece {
-    break-inside: avoid;
-    margin: 0 0 var(--gap);
+    margin: 0;
     opacity: 0;
     transform: translate3d(0, 18px, 0);
     will-change: transform, opacity;
@@ -255,7 +255,9 @@
       padding-bottom: 24px;
       gap: 12px 20px;
     }
-    .grid { columns: 2; }
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .site-footer { padding-left: var(--edge); padding-right: var(--edge); }
   }
   @media (max-width: 560px) {
@@ -278,7 +280,7 @@
       letter-spacing: 0.02em;
     }
     .grid {
-      columns: 1;
+      grid-template-columns: 1fr;
       padding-top: 18px;
       padding-left: var(--edge);
       padding-right: var(--edge);
