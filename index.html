@@ -202,7 +202,7 @@
     transform: translateY(18px);
     filter: blur(2px);
     animation: tileReveal 0.8s cubic-bezier(0.17, 0.84, 0.44, 1) forwards;
-    animation-delay: calc(var(--delay, 0) * 110ms + 60ms);
+    animation-delay: 0ms;
     will-change: transform, opacity, filter;
   }
   @keyframes tileReveal {
@@ -446,7 +446,6 @@
   pieces.forEach((p, i) => {
     const fig = document.createElement("figure");
     fig.className = "piece";
-    fig.style.setProperty("--delay", String(i));
     const btn = document.createElement("button");
     btn.type = "button";
     btn.setAttribute("aria-label", "View larger: " + (p.alt || "artwork " + (i + 1)));
