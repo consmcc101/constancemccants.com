@@ -213,14 +213,14 @@
   .piece {
     break-inside: avoid;
     margin: 0 0 var(--gap);
-    opacity: 0;
-    transform: translate3d(0, 18px, 0);
-    will-change: transform, opacity;
-    transition: opacity .45s ease, transform .9s cubic-bezier(.19, 1, .22, 1);
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+    transition: none;
   }
   .piece.visible {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: none;
   }
   .piece button {
     display: block; width: 100%;
@@ -460,9 +460,6 @@
     btn.addEventListener("click", () => open(i));
     fig.appendChild(btn);
     grid.appendChild(fig);
-    requestAnimationFrame(() => {
-      fig.classList.add("visible");
-    });
   });
 
   /* Lightbox */
