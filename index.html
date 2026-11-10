@@ -199,22 +199,21 @@
     break-inside: avoid;
     margin: 0 0 var(--gap);
     opacity: 0;
-    transform: translateY(18px);
-    filter: blur(2px);
-    animation: tileReveal 0.8s cubic-bezier(0.17, 0.84, 0.44, 1) forwards;
+    transform: translate3d(0, 18px, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    animation: tileReveal 0.9s ease-out forwards;
     animation-delay: 0ms;
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
   }
   @keyframes tileReveal {
     0% {
       opacity: 0;
-      filter: blur(2px);
-      transform: translateY(18px);
+      transform: translate3d(0, 18px, 0);
     }
     100% {
       opacity: 1;
-      filter: blur(0);
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
   .piece button {
@@ -235,7 +234,6 @@
     .piece {
       opacity: 1;
       transform: none;
-      filter: none;
       animation: none;
     }
   }
