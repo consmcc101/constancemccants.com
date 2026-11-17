@@ -493,7 +493,7 @@
     bottom: clamp(14px, 2.5vw, 34px);
     z-index: 50;
     width: clamp(92px, 10vw, 150px);
-    aspect-ratio: 250 / 375;
+    aspect-ratio: 1 / 1;
     border: 0;
     background: transparent;
     padding: 0;
@@ -667,52 +667,20 @@
 </script>
 
 <button class="treasure-chest" type="button" aria-label="Open treasure chest">
-  <img src="images/treasure-chest/chest-1.png" alt="" aria-hidden="true">
+  <img src="images/treasure-chest/frame1.png" alt="" aria-hidden="true">
 </button>
 
 <script>
   (() => {
     const chest = document.querySelector(".treasure-chest");
     const image = chest.querySelector("img");
-    const frames = [1, 2, 3, 4];
-    let timer = null;
-
-    function setFrame(index) {
-      image.src = `images/treasure-chest/chest-${frames[index]}.png`;
-    }
-
-    function stopAnimation() {
-      clearInterval(timer);
-      timer = null;
-    }
 
     function openChest() {
-      stopAnimation();
-      let frame = 0;
-      setFrame(frame);
-      timer = setInterval(() => {
-        frame += 1;
-        if (frame >= frames.length) {
-          stopAnimation();
-          return;
-        }
-        setFrame(frame);
-      }, 100);
+      image.src = "images/treasure-chest/frame2.png";
     }
 
     function closeChest() {
-      stopAnimation();
-      let frame = frames.length - 1;
-      setFrame(frame);
-      timer = setInterval(() => {
-        frame -= 1;
-        if (frame < 0) {
-          stopAnimation();
-          setFrame(0);
-          return;
-        }
-        setFrame(frame);
-      }, 100);
+      image.src = "images/treasure-chest/frame1.png";
     }
 
     chest.addEventListener("mouseenter", openChest);
