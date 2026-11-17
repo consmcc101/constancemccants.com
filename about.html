@@ -485,6 +485,32 @@
     }
     dialog { padding: 18px 18px 56px; }
   }
+
+  /* ---------- Treasure Chest ---------- */
+  .treasure-chest {
+    position: fixed;
+    right: clamp(14px, 2.5vw, 34px);
+    bottom: clamp(14px, 2.5vw, 34px);
+    z-index: 50;
+    width: clamp(92px, 10vw, 150px);
+    aspect-ratio: 250 / 375;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    filter: drop-shadow(0 12px 18px rgba(17,17,17,0.12));
+  }
+  .treasure-chest img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+  }
+  @media (max-width: 720px) {
+    .treasure-chest { width: 82px; }
+  }
 </style>
 </head>
 <body>
@@ -638,6 +664,62 @@
 
 <script>
   window.addEventListener("load", () => document.body.classList.add("ready"));
+</script>
+
+<button class="treasure-chest" type="button" aria-label="Open treasure chest">
+  <img src="images/treasure-chest/chest-1.png" alt="" aria-hidden="true">
+</button>
+
+<script>
+  (() => {
+    const chest = document.querySelector(".treasure-chest");
+    const image = chest.querySelector("img");
+    const frames = [1, 2, 3, 4];
+    let timer = null;
+
+    function setFrame(index) {
+      image.src = `images/treasure-chest/chest-${frames[index]}.png`;
+    }
+
+    function stopAnimation() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function openChest() {
+      stopAnimation();
+      let frame = 0;
+      setFrame(frame);
+      timer = setInterval(() => {
+        frame += 1;
+        if (frame >= frames.length) {
+          stopAnimation();
+          return;
+        }
+        setFrame(frame);
+      }, 100);
+    }
+
+    function closeChest() {
+      stopAnimation();
+      let frame = frames.length - 1;
+      setFrame(frame);
+      timer = setInterval(() => {
+        frame -= 1;
+        if (frame < 0) {
+          stopAnimation();
+          setFrame(0);
+          return;
+        }
+        setFrame(frame);
+      }, 100);
+    }
+
+    chest.addEventListener("mouseenter", openChest);
+    chest.addEventListener("mouseleave", closeChest);
+    chest.addEventListener("focus", openChest);
+    chest.addEventListener("blur", closeChest);
+  })();
 </script>
 
 </body>
