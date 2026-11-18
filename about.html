@@ -692,6 +692,9 @@
     chest.addEventListener("mouseleave", closeChest);
     chest.addEventListener("focus", openChest);
     chest.addEventListener("blur", closeChest);
+    chest.addEventListener("click", () => {
+      window.location.href = "secret.html";
+    });
   })();
 </script>
 
